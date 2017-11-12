@@ -42,7 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Core\Models\Command.cs" />
+    <Compile Include="Core\CommandExecutor.cs" />
+    <Compile Include="Core\CommandInterpretator.cs" />
+    <Compile Include="Core\ProcessingEngine.cs" />
+    <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
