@@ -1,12 +1,12 @@
-﻿using List_Processing.Core;
-
-namespace List_Processing
+﻿namespace List_Processing
 {
-    class StartUp
+    using Core.Models;
+
+    public class StartUp
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            var engine = new ProcessingEngine();
+            var engine = new Engine();
 
             engine.Run();
         }

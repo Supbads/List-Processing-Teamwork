@@ -42,10 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Models\Command.cs" />
+    <Compile Include="Core\Contracts\ICommand.cs" />
+    <Compile Include="Core\Contracts\IEngine.cs" />
+    <Compile Include="Core\Models\Data.cs" />
+    <Compile Include="Core\Models\Commands\AppendCommand.cs" />
+    <Compile Include="Core\Models\Commands\Command.cs" />
     <Compile Include="Core\CommandExecutor.cs" />
     <Compile Include="Core\CommandInterpretator.cs" />
+    <Compile Include="Core\Models\Commands\PrependCommand.cs" />
+    <Compile Include="Core\Models\Engine.cs" />
     <Compile Include="Core\ProcessingEngine.cs" />
+    <Compile Include="Helpers\HelperCommands.cs" />
+    <Compile Include="Helpers\Messages.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
