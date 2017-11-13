@@ -2,7 +2,7 @@
 {
     using List_Processing.Core.Contracts;
 
-    public abstract class Logger : IReader, IWritter
+    public abstract class Logger : IReader, IWriter
     {
         public abstract string Read();
 

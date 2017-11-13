@@ -2,27 +2,64 @@
 {
     using List_Processing.Core.Models;
     using Contracts;
+    using System.Linq;
+    using List_Processing.Helpers;
+    using System;
 
     public class Engine : IEngine
     {
-        public CommandExecutor executor;
+        //private CommandExecutor executor;
 
-        public Engine(Logger logger)
+        private readonly ICommandInterpreter interpreter;
+
+        private readonly Data data = new Data();
+
+        private Logger logger;
+
+        public Engine(Logger logger, ICommandInterpreter interpreter)
         {
-            this.executor = new CommandExecutor(logger);
+            this.IsRunning = true;
+
+            this.logger = logger;
+            this.interpreter = interpreter;
+            //this.executor = new CommandExecutor();
         }
+
+        public bool IsRunning { get; set; }
 
         public void Run()
         {
-            this.executor.SeedData();
+            this.SeedData();
 
-            while (true)
+            while (IsRunning)
             {
-                
-                this.executor.ExecuteCommand();
-                
-                
+                var output = Utils.AppendData(data.DataParams);
+                this.logger.Write(output);
+
+                var commandInput = logger.Read();
+
+                try
+                {
+                    var command = this.interpreter.ParseCommand(commandInput);
+                    command.Execute(this.data);
+
+                    this.IsRunning = !this.data.EndReceived;
+                }
+                catch (Exception e)
+                {
+                    logger.Write(e.Message);
+                }
             }
+        }
+
+        private void SeedData()
+        {
+            var dataInput = logger.Read();
+
+            data.DataParams.AddRange(dataInput.Split().ToList());
+
+            //var output = Utils.AppendData(data.DataParams);
+            //this.logger.Write(output);
         }
     }
 }

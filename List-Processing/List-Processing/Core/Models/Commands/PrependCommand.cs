@@ -4,8 +4,8 @@
 
     public class PrependCommand : Command
     {
-        public PrependCommand(string action, IList<string> parameters) 
-            : base(action, parameters)
+        public PrependCommand(IList<string> parameters) 
+            : base(parameters)
         {
         }
 

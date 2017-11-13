@@ -6,13 +6,12 @@
     public abstract class Command : ICommand
     {
 
-        protected Command(string action, IList<string> parameters)
+        protected Command(IList<string> parameters)
         {
-            this.Action = action;
             this.Parameters = parameters;
         }
 
-        public string Action { get; set; }
+        //public string Action { get; set; }
 
         public IList<string> Parameters { get; set; }
 

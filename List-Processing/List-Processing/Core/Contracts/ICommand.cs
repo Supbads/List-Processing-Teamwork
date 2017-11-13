@@ -5,8 +5,6 @@
 
     public interface ICommand
     {
-        string Action { get; }
-
         IList<string> Parameters { get; }
 
         void Execute(Data data);

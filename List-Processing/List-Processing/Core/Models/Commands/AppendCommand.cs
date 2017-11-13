@@ -4,8 +4,8 @@
 
     public class AppendCommand : Command
     {
-        public AppendCommand(string action, IList<string> parameters) 
-            : base(action, parameters)
+        public AppendCommand(IList<string> parameters) 
+            : base(parameters)
         {
         }
 

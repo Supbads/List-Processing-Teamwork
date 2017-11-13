@@ -43,9 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Contracts\ICommand.cs" />
+    <Compile Include="Core\Contracts\ICommandInterpreter.cs" />
     <Compile Include="Core\Contracts\IEngine.cs" />
     <Compile Include="Core\Contracts\IReader.cs" />
-    <Compile Include="Core\Contracts\IWritter.cs" />
+    <Compile Include="Core\Contracts\IWriter.cs" />
+    <Compile Include="Core\Models\Commands\EndCommand.cs" />
+    <Compile Include="Core\Models\Commands\InsertCommand.cs" />
+    <Compile Include="Core\Models\Commands\ReverseCommand.cs" />
     <Compile Include="Core\Models\ConsoleReaderWriter.cs" />
     <Compile Include="Core\Models\Data.cs" />
     <Compile Include="Core\Models\Commands\AppendCommand.cs" />

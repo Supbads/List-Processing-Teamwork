@@ -3,12 +3,12 @@
 namespace List_Processing.Core
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using List_Processing.Core.Models.Commands;
     using List_Processing.Helpers;
+    using List_Processing.Core.Contracts;
 
-    public class CommandInterpreter
+    public class CommandInterpreter : ICommandInterpreter
     {
         private Logger logger;
 
@@ -17,13 +17,8 @@ namespace List_Processing.Core
             this.logger = logger;
         }
 
-        public void Seed(List<string> collection, string input)
-        {
-            collection.AddRange(input.Split().ToList());
-        }
-
         public Command ParseCommand(string commandInput)
-        {          
+        {           
             var commandArguments = commandInput.Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries);
 
             // first check if it's a valid command
@@ -42,16 +37,22 @@ namespace List_Processing.Core
                 case "append":
                     ValidateCommandLength(length, Messages.AppendCommandLength);
 
-                    command = new AppendCommand(action, parameters);
+                    command = new AppendCommand(parameters);
                     break;                   
                 case "prepend":
                     ValidateCommandLength(length, Messages.PrependCommandLength);
 
-                    command = new PrependCommand(action, parameters);
+                    command = new PrependCommand(parameters);
                     break;
                 case "reverse":
+                    ValidateCommandLength(length, Messages.ReverseCommandLength);
+
+                    command = new ReverseCommand(parameters);
                     break;
                 case "insert":
+                    ValidateCommandLength(length, Messages.InsertCommandLength);
+
+                    command = new InsertCommand(parameters);
                     break;
                 case "delete":
                     break;
@@ -64,7 +65,7 @@ namespace List_Processing.Core
                 case "end":
                     logger.Write(Messages.FinishedMessage);
 
-                    Environment.Exit(0);
+                    command = new EndCommand(parameters);
                     break;
                 default:
                     throw new ArgumentException(Messages.InvalidCommand);
