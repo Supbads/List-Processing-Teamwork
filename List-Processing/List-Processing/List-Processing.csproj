@@ -50,11 +50,12 @@
     <Compile Include="Core\Models\Commands\EndCommand.cs" />
     <Compile Include="Core\Models\Commands\InsertCommand.cs" />
     <Compile Include="Core\Models\Commands\ReverseCommand.cs" />
+    <Compile Include="Core\Models\Commands\RollCommand.cs" />
+    <Compile Include="Core\Models\Commands\SortCommand.cs" />
     <Compile Include="Core\Models\ConsoleReaderWriter.cs" />
     <Compile Include="Core\Models\Data.cs" />
     <Compile Include="Core\Models\Commands\AppendCommand.cs" />
     <Compile Include="Core\Models\Commands\Command.cs" />
-    <Compile Include="Core\CommandExecutor.cs" />
     <Compile Include="Core\CommandInterpreter.cs" />
     <Compile Include="Core\Models\Commands\PrependCommand.cs" />
     <Compile Include="Core\Engine.cs" />

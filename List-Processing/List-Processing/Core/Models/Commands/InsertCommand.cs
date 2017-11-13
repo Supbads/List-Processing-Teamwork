@@ -1,4 +1,6 @@
-﻿namespace List_Processing.Core.Models.Commands
+﻿using List_Processing.Helpers;
+
+namespace List_Processing.Core.Models.Commands
 {
     using System;
     using System.Collections.Generic;
@@ -16,12 +18,12 @@
 
             if (!int.TryParse(indexString, out int index))
             {
-                throw new ArgumentException($"Error: invalid index {indexString}");
+                throw new ArgumentException($"{Messages.InvalidIndex} {indexString}");
             }
 
             if (index < 0 || index >= data.DataParams.Count)
             {
-                throw new ArgumentException($"Error: invalid index {index}");
+                throw new ArgumentException($"{Messages.InvalidIndex} {indexString}");
             }
 
             var word = this.Parameters[1];

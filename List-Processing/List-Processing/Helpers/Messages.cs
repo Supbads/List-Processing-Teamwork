@@ -6,6 +6,8 @@
 
         public const string InvalidCommand = "Error: invalid command";
 
+        public const string InvalidIndex = "Error: invalid index";
+
         public const string FinishedMessage = "Finished";
 
         public const string AppendCommandName = "append";
@@ -19,6 +21,10 @@
 
         public const string InsertCommandName = "insert";
         public const int InsertCommandLength = 3;
+
+        public const int RollCommandLength = 2;
+
+        public const int SortCommandLength = 1;
 
         //TODO: write the rest commands 
     }

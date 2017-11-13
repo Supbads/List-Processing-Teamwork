@@ -22,7 +22,7 @@
 
             this.logger = logger;
             this.interpreter = interpreter;
-            //this.executor = new CommandExecutor();
+
         }
 
         public bool IsRunning { get; set; }

@@ -56,9 +56,15 @@ namespace List_Processing.Core
                     break;
                 case "delete":
                     break;
-                case "roll":             
+                case "roll":
+                    ValidateCommandLength(length, Messages.RollCommandLength);
+
+                    command = new RollCommand(parameters);
                     break;
-                case "sort":                
+                case "sort":
+                    ValidateCommandLength(length, Messages.SortCommandLength);
+
+                    command = new SortCommand(parameters);
                     break;
                 case "count":
                     break;
