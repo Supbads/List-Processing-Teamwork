@@ -1,7 +1,7 @@
 ﻿namespace List_Processing.Core.Contracts
 {
-    public interface IEngine
+    public interface IReader
     {
-        void Run();
+        string Read();
     }
 }

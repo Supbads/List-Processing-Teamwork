@@ -1,0 +1,7 @@
+F:\zUniversity\zzzzzzrepos\Teamwork 2017-10\04. Project-Tracking-Tools-Exercise\List-Processing-Teamwork\List-Processing\List-Processing\obj\Debug\List-Processing.csprojResolveAssemblyReference.cache
+F:\zUniversity\zzzzzzrepos\Teamwork 2017-10\04. Project-Tracking-Tools-Exercise\List-Processing-Teamwork\List-Processing\List-Processing\obj\Debug\List-Processing.csproj.CoreCompileInputs.cache
+F:\zUniversity\zzzzzzrepos\Teamwork 2017-10\04. Project-Tracking-Tools-Exercise\List-Processing-Teamwork\List-Processing\List-Processing\bin\Debug\List-Processing.exe.config
+F:\zUniversity\zzzzzzrepos\Teamwork 2017-10\04. Project-Tracking-Tools-Exercise\List-Processing-Teamwork\List-Processing\List-Processing\bin\Debug\List-Processing.exe
+F:\zUniversity\zzzzzzrepos\Teamwork 2017-10\04. Project-Tracking-Tools-Exercise\List-Processing-Teamwork\List-Processing\List-Processing\bin\Debug\List-Processing.pdb
+F:\zUniversity\zzzzzzrepos\Teamwork 2017-10\04. Project-Tracking-Tools-Exercise\List-Processing-Teamwork\List-Processing\List-Processing\obj\Debug\List-Processing.exe
+F:\zUniversity\zzzzzzrepos\Teamwork 2017-10\04. Project-Tracking-Tools-Exercise\List-Processing-Teamwork\List-Processing\List-Processing\obj\Debug\List-Processing.pdb

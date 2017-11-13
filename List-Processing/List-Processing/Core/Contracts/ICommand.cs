@@ -1,6 +1,7 @@
 ﻿namespace List_Processing.Core.Contracts
 {
     using System.Collections.Generic;
+    using List_Processing.Core.Models;
 
     public interface ICommand
     {
@@ -8,8 +9,6 @@
 
         IList<string> Parameters { get; }
 
-        IList<string> Data { get; }
-
-        void Execute();
+        void Execute(Data data);
     }
 }

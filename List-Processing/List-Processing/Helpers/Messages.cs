@@ -2,7 +2,11 @@
 {
     public class Messages
     {
-        public const string InvalidInput = "Error: invalid command parameters.";
+        public const string InvalidParameters = "Error: invalid command parameters.";
+
+        public const string InvalidCommand = "Error: invalid command";
+
+        public const string FinishedMessage = "Finished";
 
         public const string AppendCommandName = "append";
 

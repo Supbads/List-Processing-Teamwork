@@ -4,6 +4,6 @@
 
     public class Data
     {
-        public IList<string> DataParams { get; set; } = new List<string>();
+        public List<string> DataParams { get; set; } = new List<string>();
     }
 }

@@ -1,7 +1,6 @@
 ﻿namespace List_Processing.Core.Models.Commands
 {
     using System.Collections.Generic;
-    using Helpers;
 
     public class AppendCommand : Command
     {
@@ -10,10 +9,9 @@
         {
         }
 
-        public override void Execute()
+        public override void Execute(Data data)
         {
-            this.Data.Add(this.Parameters[0]);
-            HelperCommands.Print(this.Data);
+            data.DataParams.Add(this.Parameters[0]);
         }
     }
 }

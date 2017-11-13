@@ -1,23 +1,25 @@
-﻿namespace List_Processing.Core
+﻿using List_Processing.Core.Models;
+
+namespace List_Processing.Core
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Runtime.InteropServices;
-    using List_Processing.Core.Contracts;
     using List_Processing.Core.Models.Commands;
     using List_Processing.Helpers;
-    using Models;
 
-    public class CommandInterpretator
+    public class CommandInterpreter
     {
-        public CommandInterpretator()
+        private Logger logger;
+
+        public CommandInterpreter(Logger logger)
         {
+            this.logger = logger;
         }
 
-        public void Seed(IEnumerable<string> collection, string input)
+        public void Seed(List<string> collection, string input)
         {
-            collection.ToList().AddRange(input.Split().ToList());
+            collection.AddRange(input.Split().ToList());
         }
 
         public Command ParseCommand(string commandInput)
@@ -33,24 +35,17 @@
             var action = commandArguments[0];
             var parameters = commandArguments.Skip(1).ToList();
 
+
             // make it with reflection, if you hate your life
-            switch (commandArguments[0])
+            switch (action)
             {
                 case "append":
-                    HelperCommands.CheckCommand(
-                        action, 
-                        Messages.AppendCommandName, 
-                        length,
-                        Messages.AppendCommandLength);
+                    ValidateCommandLength(length, Messages.AppendCommandLength);
 
                     command = new AppendCommand(action, parameters);
                     break;                   
                 case "prepend":
-                    HelperCommands.CheckCommand(
-                        commandInput,
-                        Messages.PrependCommandName,
-                        length,
-                        Messages.PrependCommandLength);
+                    ValidateCommandLength(length, Messages.PrependCommandLength);
 
                     command = new PrependCommand(action, parameters);
                     break;
@@ -66,11 +61,34 @@
                     break;
                 case "count":
                     break;
-                case "end":               
+                case "end":
+                    logger.Write(Messages.FinishedMessage);
+
+                    Environment.Exit(0);
                     break;
+                default:
+                    throw new ArgumentException(Messages.InvalidCommand);
             }
 
             return command;
+        }
+
+        private void ValidateCommandLength(int length, int reqLength)
+        {
+            bool isCommandLengthValid = IsCommandLengthValid(length,
+                reqLength);
+
+            if (!isCommandLengthValid)
+            {
+                throw new ArgumentException(Messages.InvalidParameters);
+            }
+        }
+
+        private bool IsCommandLengthValid(int length, int reqLength)
+        {
+            return Utils.CheckCommandLength(
+                length,
+                reqLength);
         }
     }
 }
