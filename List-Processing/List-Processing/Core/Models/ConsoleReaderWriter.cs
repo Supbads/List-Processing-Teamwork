@@ -2,7 +2,7 @@
 {
     using System;
 
-    class ConsoleLogger : Logger
+    public class ConsoleLogger : Logger
     {
         public override string Read()
         {

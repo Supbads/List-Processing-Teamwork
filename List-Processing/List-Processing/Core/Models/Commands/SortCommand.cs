@@ -4,7 +4,8 @@
 
     public class SortCommand : Command
     {
-        public SortCommand(IList<string> parameters) : base(parameters)
+        public SortCommand(IList<string> parameters) 
+            : base(parameters)
         {
         }
 

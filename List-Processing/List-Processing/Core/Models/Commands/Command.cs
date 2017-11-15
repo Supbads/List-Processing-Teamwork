@@ -5,7 +5,6 @@
 
     public abstract class Command : ICommand
     {
-
         protected Command(IList<string> parameters)
         {
             this.Parameters = parameters;

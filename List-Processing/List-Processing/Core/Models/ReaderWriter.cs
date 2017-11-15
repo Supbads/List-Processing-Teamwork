@@ -1,6 +1,6 @@
 ﻿namespace List_Processing.Core.Models
 {
-    using List_Processing.Core.Contracts;
+    using Contracts;
 
     public abstract class Logger : IReader, IWriter
     {

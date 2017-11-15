@@ -1,20 +1,18 @@
 ﻿namespace List_Processing.Core
 {
-    using List_Processing.Core.Models;
-    using Contracts;
-    using System.Linq;
-    using List_Processing.Helpers;
     using System;
+    using System.Linq;
+    using Contracts;
+    using Helpers;
+    using Models;
 
     public class Engine : IEngine
     {
         //private CommandExecutor executor;
 
         private readonly ICommandInterpreter interpreter;
-
         private readonly Data data = new Data();
-
-        private Logger logger;
+        private readonly Logger logger;
 
         public Engine(Logger logger, ICommandInterpreter interpreter)
         {
@@ -31,12 +29,13 @@
         {
             this.SeedData();
 
-            while (IsRunning)
+            while (this.IsRunning)
             {
-                var output = Utils.AppendData(data.DataParams);
+                var output = Utils.AppendData(this.data.DataParams);
+
                 this.logger.Write(output);
 
-                var commandInput = logger.Read();
+                var commandInput = this.logger.Read();
 
                 try
                 {
@@ -47,16 +46,16 @@
                 }
                 catch (Exception e)
                 {
-                    logger.Write(e.Message);
+                    this.logger.Write(e.Message);
                 }
             }
         }
 
         private void SeedData()
         {
-            var dataInput = logger.Read();
+            var dataInput = this.logger.Read();
 
-            data.DataParams.AddRange(dataInput.Split().ToList());
+            this.data.DataParams.AddRange(dataInput.Split().ToList());
 
             //var output = Utils.AppendData(data.DataParams);
             //this.logger.Write(output);

@@ -1,13 +1,10 @@
 ﻿namespace List_Processing.Helpers
 {
-    public class Messages
+    public class Constants
     {
         public const string InvalidParameters = "Error: invalid command parameters.";
-
         public const string InvalidCommand = "Error: invalid command";
-
         public const string InvalidIndex = "Error: invalid index";
-
         public const string FinishedMessage = "Finished";
 
         public const string AppendCommandName = "append";

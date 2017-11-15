@@ -61,7 +61,7 @@
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Core\Models\ReaderWriter.cs" />
     <Compile Include="Helpers\Utils.cs" />
-    <Compile Include="Helpers\Messages.cs" />
+    <Compile Include="Helpers\Constants.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

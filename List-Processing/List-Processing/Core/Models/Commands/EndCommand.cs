@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace List_Processing.Core.Models.Commands
+﻿namespace List_Processing.Core.Models.Commands
 {
+    using System.Collections.Generic;
+
     public class EndCommand : Command
     {
         public EndCommand(IList<string> parameters)

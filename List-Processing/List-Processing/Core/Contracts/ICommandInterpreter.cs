@@ -1,6 +1,6 @@
 ﻿namespace List_Processing.Core.Contracts
 {
-    using List_Processing.Core.Models.Commands;
+    using Models.Commands;
 
     public interface ICommandInterpreter
     {

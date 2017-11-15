@@ -1,16 +1,15 @@
-﻿using List_Processing.Core.Models;
-
-namespace List_Processing.Core
+﻿namespace List_Processing.Core
 {
     using System;
     using System.Linq;
-    using List_Processing.Core.Models.Commands;
-    using List_Processing.Helpers;
-    using List_Processing.Core.Contracts;
+    using Contracts;
+    using Helpers;
+    using Models;
+    using Models.Commands;
 
     public class CommandInterpreter : ICommandInterpreter
     {
-        private Logger logger;
+        private readonly Logger logger;
 
         public CommandInterpreter(Logger logger)
         {
@@ -35,63 +34,64 @@ namespace List_Processing.Core
             switch (action)
             {
                 case "append":
-                    ValidateCommandLength(length, Messages.AppendCommandLength);
-
+                    ValidateCommandLength(length, Constants.AppendCommandLength);
                     command = new AppendCommand(parameters);
-                    break;                   
-                case "prepend":
-                    ValidateCommandLength(length, Messages.PrependCommandLength);
+                    break;
 
+                case "prepend":
+                    ValidateCommandLength(length, Constants.PrependCommandLength);      
                     command = new PrependCommand(parameters);
                     break;
-                case "reverse":
-                    ValidateCommandLength(length, Messages.ReverseCommandLength);
 
+                case "reverse":
+                    ValidateCommandLength(length, Constants.ReverseCommandLength);
                     command = new ReverseCommand(parameters);
                     break;
-                case "insert":
-                    ValidateCommandLength(length, Messages.InsertCommandLength);
 
+                case "insert":
+                    ValidateCommandLength(length, Constants.InsertCommandLength);
                     command = new InsertCommand(parameters);
                     break;
                 case "delete":
                     break;
-                case "roll":
-                    ValidateCommandLength(length, Messages.RollCommandLength);
 
+                case "roll":
+                    ValidateCommandLength(length, Constants.RollCommandLength);
                     command = new RollCommand(parameters);
                     break;
-                case "sort":
-                    ValidateCommandLength(length, Messages.SortCommandLength);
 
+                case "sort":
+                    ValidateCommandLength(length, Constants.SortCommandLength);
                     command = new SortCommand(parameters);
                     break;
+
                 case "count":
                     break;
-                case "end":
-                    logger.Write(Messages.FinishedMessage);
 
+                case "end":
+                    this.logger.Write(Constants.FinishedMessage);
                     command = new EndCommand(parameters);
                     break;
+
                 default:
-                    throw new ArgumentException(Messages.InvalidCommand);
+                    throw new ArgumentException(Constants.InvalidCommand);
             }
 
             return command;
         }
 
-        private void ValidateCommandLength(int length, int reqLength)
+        private static void ValidateCommandLength(int length, int reqLength)
         {
-            bool isCommandLengthValid = IsCommandLengthValid(length,
+            var isCommandLengthValid = IsCommandLengthValid(length,
                 reqLength);
 
             if (!isCommandLengthValid)
             {
-                throw new ArgumentException(Messages.InvalidParameters);
+                throw new ArgumentException(Constants.InvalidParameters);
             }
         }
 
-        private bool IsCommandLengthValid(int length, int reqLength)
+        private static bool IsCommandLengthValid(int length, int reqLength)
         {
             return Utils.CheckCommandLength(
                 length,

@@ -1,9 +1,8 @@
-﻿using List_Processing.Helpers;
-
-namespace List_Processing.Core.Models.Commands
+﻿namespace List_Processing.Core.Models.Commands
 {
     using System;
     using System.Collections.Generic;
+    using Helpers;
 
     public class InsertCommand : Command
     {
@@ -18,12 +17,12 @@ namespace List_Processing.Core.Models.Commands
 
             if (!int.TryParse(indexString, out int index))
             {
-                throw new ArgumentException($"{Messages.InvalidIndex} {indexString}");
+                throw new ArgumentException($"{Constants.InvalidIndex} {indexString}");
             }
 
             if (index < 0 || index >= data.DataParams.Count)
             {
-                throw new ArgumentException($"{Messages.InvalidIndex} {indexString}");
+                throw new ArgumentException($"{Constants.InvalidIndex} {indexString}");
             }
 
             var word = this.Parameters[1];

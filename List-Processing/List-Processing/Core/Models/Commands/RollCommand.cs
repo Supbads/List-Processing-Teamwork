@@ -2,13 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
-    using List_Processing.Helpers;
+    using Helpers;
 
     public class RollCommand : Command
     {
         private const int ShiftAmount = 1;
 
-        public RollCommand(IList<string> parameters) : base(parameters)
+        public RollCommand(IList<string> parameters) 
+            : base(parameters)
         {
         }
 
@@ -39,7 +40,7 @@
             }
             else
             {
-                throw new ArgumentException($"{Messages.InvalidParameters}");
+                throw new ArgumentException($"{Constants.InvalidParameters}");
             }
 
             data.DataParams = shiftedData;

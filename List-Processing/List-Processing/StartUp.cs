@@ -1,7 +1,7 @@
 ﻿namespace List_Processing
 {
+    using Core;
     using Core.Models;
-    using List_Processing.Core;
 
     public class StartUp
     {
