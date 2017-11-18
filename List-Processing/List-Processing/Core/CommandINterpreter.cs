@@ -53,6 +53,8 @@
                     command = new InsertCommand(parameters);
                     break;
                 case "delete":
+                    ValidateCommandLength(length, Constants.DeleteCommandLength);
+                    command = new DeleteCommand(parameters);
                     break;
 
                 case "roll":

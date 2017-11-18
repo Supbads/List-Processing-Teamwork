@@ -23,6 +23,8 @@
 
         public const int SortCommandLength = 1;
 
-        //TODO: write the rest commands 
+        public const string DeleteCommandName = "delete";
+        public const int DeleteCommandLength = 2;
+
     }
 }
