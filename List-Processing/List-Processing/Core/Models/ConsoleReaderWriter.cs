@@ -13,6 +13,7 @@
 
         public override void Write(string line)
         {
+            
             Console.WriteLine(line);
         }
     }

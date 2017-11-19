@@ -26,5 +26,7 @@
         public const string DeleteCommandName = "delete";
         public const int DeleteCommandLength = 2;
 
+        public const string CountCommandName = "count";
+        public const int CountCommandLength = 2;
     }
 }

@@ -47,6 +47,7 @@
     <Compile Include="Core\Contracts\IEngine.cs" />
     <Compile Include="Core\Contracts\IReader.cs" />
     <Compile Include="Core\Contracts\IWriter.cs" />
+    <Compile Include="Core\Models\Commands\CountCommand.cs" />
     <Compile Include="Core\Models\Commands\DeleteCommand.cs" />
     <Compile Include="Core\Models\Commands\EndCommand.cs" />
     <Compile Include="Core\Models\Commands\InsertCommand.cs" />

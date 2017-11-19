@@ -68,6 +68,8 @@
                     break;
 
                 case "count":
+                    ValidateCommandLength(length, Constants.CountCommandLength);
+                    command = new CountCommand(parameters);
                     break;
 
                 case "end":
