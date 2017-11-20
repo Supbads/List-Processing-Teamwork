@@ -28,14 +28,18 @@
         public void Run()
         {
             this.SeedData();
+            var commandInput = string.Empty;
 
             while (this.IsRunning)
             {
                 var output = Utils.AppendData(this.data.DataParams);
 
-                this.logger.Write(output);
+                if (!commandInput.StartsWith(Constants.CountCommandName))
+                {
+                    this.logger.Write(output);
+                }
 
-                var commandInput = this.logger.Read();
+                commandInput = this.logger.Read();
 
                 try
                 {
